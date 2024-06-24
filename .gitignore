@@ -1,5 +1,6 @@
 #ignore local static file root or "local-cdn"
 /local-cdn
+src/local-cdn
 
 #ignore vendor files
 src/staticfiles
