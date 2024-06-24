@@ -68,8 +68,8 @@ WSGI_APPLICATION = 'home.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASE_URL = config("DATABASE_URL", cast=str, default=None)
 CONN_MAX_AGE = config("CONN_MAX_AGE", cast=int, default=30)
+DATABASE_URL = config("DATABASE_URL", default=None)
 
 if DATABASE_URL:
     DATABASES = {
