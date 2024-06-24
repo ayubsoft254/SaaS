@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}<title> {{block.super}} - Home</title>{% endblock title %}
+{% block body %}
+{% include "snippets/welcome-user-msg.html" %}
+<h1>ovewrite</h1>
+{{request.user.is_authenticated}}
+{{request.method}}
+{{request.user}}
+<p>
+   Page Visits: {{page_visit_count}}
+</p>
+{% endblock body %}
