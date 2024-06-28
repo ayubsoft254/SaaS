@@ -24,5 +24,5 @@ urlpatterns = [
     path("", home_page_view, name="home"),
     path('accounts/', include('allauth.urls')),
     path("login", auth_view.login_view, name="login"),
-    path("register", auth_view.register_view, name="login"),    
+    path("register", auth_view.register_view, name="register"),    
 ]
