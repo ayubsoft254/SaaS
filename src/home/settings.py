@@ -54,13 +54,13 @@ INSTALLED_APPS = [
     # my apps
     "commando",
     "visits",
+    "profiles",
     #third-party apps
     'allauth_ui',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',    
     'widget_tweaks',
     'slippers',
 
@@ -154,10 +154,7 @@ AUTHENTICATION_BACKENDS = [
 SOCIALACCOUNT_PROVIDERS = {
     'github': {
         "VERIFIED_EMAIL": True
-    },
-    'google': {
-        'FETCH_USERINFO' : True
-    } 
+    },     
 }
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
