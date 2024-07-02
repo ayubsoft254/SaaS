@@ -80,6 +80,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'home.urls'
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://saas-production-80e8.up.railway.app',
+    # add other trusted origins if necessary
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
