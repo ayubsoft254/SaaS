@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     # my apps
     "commando",
     "visits",
+    "customers",
     "profiles",
     "subscriptions",
     #third-party apps
@@ -63,6 +64,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',    
     'widget_tweaks',
+    'stripe',
     'slippers',
 
 ]
