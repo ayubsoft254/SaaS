@@ -1,20 +1,24 @@
-{% extends "base.html" %}
-{% block title %}<title> {{block.super}} - Users</title>{% endblock title %}
-{% block body %}
-{% include "snippets/welcome-user-msg.html" %}
-<h1 class="text-lg font-medium">{{instance.username}}</h1>
+{% extends 'base.html' %}
+
+
+{% block head_title %}Users - {{ block.super }}{% endblock head_title %}
+
+
+{% block content %}
+<h1 class="text-lg font-medium">{{ instance.username }}</h1>
+
 
     {% if perms.auth or owner %}
     {% if perms.auth.view_user or owner %}
     <div>
-       {{instance.first_name}}  {{instance.last_name}} - 
-       {{instance.last_login}} 
+        {{ instance.first_name }} -  {{ instance.last_name }}
+        {{ instance.last_login }}
     </div>
     {% else %}
-    <div>
-        <p>Permission Denied</p>
-    </div>
-    {% endif %}
-    {% endif %}
+    <div>You are not allowed to see this</div>
 
-{% endblock body %}
+    {% endif %}
+{% endif %}
+
+{% endblock content %}
+
