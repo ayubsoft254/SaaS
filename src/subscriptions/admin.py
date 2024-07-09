@@ -1,19 +1,21 @@
 from django.contrib import admin
+
+# Register your models here.
 from .models import Subscription, SubscriptionPrice, UserSubscription
 
-class SubscriptionPriceInline(admin.TabularInline):
+class SubscriptionPrice(admin.StackedInline):
     model = SubscriptionPrice
+    readonly_fields = ['stripe_id']
+    can_delete = False
     extra = 0
 
 class SubscriptionAdmin(admin.ModelAdmin):
-    inlines = [SubscriptionPriceInline]
-    list_display = ['name', 'active', 'stripe_id_display']  # Add 'stripe_id_display' if needed
-
-    def stripe_id_display(self, obj):
-        return obj.stripe_id if obj.stripe_id else "Not available"
-    stripe_id_display.short_description = 'Stripe ID'
-
+    inlines = [SubscriptionPrice]
+    list_display = ['name', 'active']
     readonly_fields = ['stripe_id']
 
+
 admin.site.register(Subscription, SubscriptionAdmin)
+
+
 admin.site.register(UserSubscription)
