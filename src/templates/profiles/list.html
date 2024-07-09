@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}<title> {{block.super}} - Users</title>{% endblock title %}
+{% block body %}
+{% include "snippets/welcome-user-msg.html" %}
+<h1 class="text-lg font-medium">Users</h1>
+
+    {% if perms.auth %}
+    {% if perms.auth.view_user %}
+    <div>
+        {% for instance in object_list %}
+        <li><a href="/profiles/{{instance.username}}">{{instance.username}}</a></li>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div>
+        <p>Permission Denied</p>
+    </div>
+    {% endif %}
+    {% endif %}
+
+{% endblock body %}
