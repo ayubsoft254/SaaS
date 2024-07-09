@@ -16,13 +16,11 @@ RUN pip install --upgrade pip
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-#error line
-
 # Install os dependencies for our mini vm
 RUN apt-get update && apt-get install -y \
     # for postgres
     libpq-dev \
-    # for Pillow    
+    # for Pillow
     libjpeg-dev \
     # for CairoSVG
     libcairo2 \
@@ -52,7 +50,9 @@ ENV DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
 ARG DJANGO_DEBUG=0
 ENV DJANGO_DEBUG=${DJANGO_DEBUG}
 
-# Move the vendor_pull command to runtime if it requires database access
+# Set the Django settings module environment variable
+ENV DJANGO_SETTINGS_MODULE=home.settings
+
 # Database isn't available during build
 # Run any other commands that do not need the database
 # such as:
