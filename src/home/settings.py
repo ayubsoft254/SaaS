@@ -115,6 +115,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "home.wsgi.application"
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://saas-production-6c70.up.railway.app',
+    # add other trusted origins if necessary
+]
+
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
